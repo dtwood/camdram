@@ -1,5 +1,5 @@
 {% if shows | length > 0 %}
-    <h4>{{ person.name }} is currently involved with</h4>
+    <h4><span dir="auto">{{ person.name }}</span> is currently involved with</h4>
     {% for show in shows %}
         <div>
             {{ include('ActsCamdramBundle:Person:show-header.html.twig') }}

@@ -6,10 +6,10 @@
         {% if people|length == 1 %}
             {% set person = people.0 %}
 
-            <p>We have found someone called {{ person.name }} on camdram who has been involved with the following shows:</p>
+            <p>We have found someone called <span dir="auto">{{ person.name }}</span> on camdram who has been involved with the following shows:</p>
 
             {% for role in person.roles %}
-                {{ role.show.name }} ({{ role.role }}){% if not loop.last %},{% endif %}
+                <span dir="auto">{{ role.show.name }}</span> (<span dir="auto">{{ role.role }}</span>){% if not loop.last %},{% endif %}
             {% endfor %}
 
             <p>Do you recognise this person to be yourself?</p>
@@ -25,9 +25,9 @@
             {% for person in people %}
                 <p>
                     <input type="checkbox" id="link_people_{{ person.id }}" name="link_people[{{ person.id }}]" value="1"/>
-                    <label for="link_people_{{ person.id }}">{{ person.name }}
+                    <label for="link_people_{{ person.id }}"><span dir="auto">{{ person.name }}</span>
                         <em>{% for role in person.roles %}
-                                {{ role.show.name }} ({{ role.role }}){% if not loop.last %},{% endif %}
+                                <span dir="auto">{{ role.show.name }}</span> (<span dir="auto">{{ role.role }}</span>){% if not loop.last %},{% endif %}
                             {% endfor %}</em></label>
                 </p>
             {% endfor %}

@@ -34,9 +34,9 @@
             <div class="small-10 columns">
             {%- if admin.person is defined -%}
                 {%- if admin.person -%}
-                    <a href="{{ path('get_person', {identifier: admin.person.slug}) }}">{{ admin.name }}</a>
+                    <a href="{{ path('get_person', {identifier: admin.person.slug}) }}" dir="auto">{{ admin.name }}</a>
                 {%- else -%}
-                    {{ admin.name }}
+                    <span dir="auto">{{ admin.name }}</span>
                 {%- endif -%}
             {%- endif -%}
             </div>
@@ -59,9 +59,9 @@
             <div class="small-11 columns">
             {%- if admin.person is defined -%}
                 {%- if admin.person -%}
-                    <a href="{{ path('get_person', {identifier: admin.person.slug}) }}">{{ admin.name }}</a>
+                    <a href="{{ path('get_person', {identifier: admin.person.slug}) }}" dir="auto">{{ admin.name }}</a>
                 {%- else -%}
-                    {{ admin.name }}
+                    <span dir="auto">{{ admin.name }}</span>
                 {%- endif -%}
             {%- endif -%}
             </div><div class="small-1 columns"><span data-tooltip class="has-tip" title="Revoke this admin."><a href="{{ path((revoke_admin_route), {identifier: entity.slug, 'uid': admin.id}) }}"><i class="fa fa-trash-o"></i></a></span>
@@ -73,7 +73,7 @@
     <div class="large-6 column">
         <h4>Pending Admins</h4>
         {% if admins is empty %}
-        <p>There are no pending admins for this {{ entity.entityType }}.</p>
+        <p>Thee are no pending admins for this {{ entity.entityType }}.</p>
         {% endif %}
         {% for pending in pending_admins %}
             {{ not loop.first ? '</div></div>' }}

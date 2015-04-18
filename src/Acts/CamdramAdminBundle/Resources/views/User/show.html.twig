@@ -16,7 +16,7 @@
         <p><strong>Last login:</strong> {% if user.lastLoginAt > date('0000-00-00') %}{{ user.lastLoginAt | date('Y-m-d') }}{% endif %}</td>
 
         {% if user.person %}
-            <p>Linked to person <a href="{{ path('get_person', {identifier: user.person.slug}) }}">{{ user.person.name }}</a></p>
+            <p>Linked to person <a href="{{ path('get_person', {identifier: user.person.slug}) }}" dir="auto">{{ user.person.name }}</a></p>
         {% endif %}
 
         {% if user.roles | length > 0 %}
@@ -32,7 +32,7 @@
         <h4>Societies</h4>
         <ul>
         {% for org in organisations if org.entitytype == 'society' %}
-            <li><a href="{{ path('get_society', {identifier: org.slug}) }}">{{ org.name }}</a></li>
+            <li><a href="{{ path('get_society', {identifier: org.slug}) }}" dir="auto">{{ org.name }}</a></li>
             {% set seen_society = true %}
         {% endfor %}
         </ul>
@@ -43,7 +43,7 @@
         <h4>Venues</h4>
         <ul>
         {% for org in organisations if org.entitytype == 'venue' %}
-            <li><a href="{{ path('get_venue', {identifier: org.slug}) }}">{{ org.name }}</a></li>
+            <li><a href="{{ path('get_venue', {identifier: org.slug}) }}" dir="auto">{{ org.name }}</a></li>
             {% set seen_venue = true %}
         {% endfor %}
         {% if not seen_venue %}
@@ -54,7 +54,7 @@
         {% if shows %}
         <ul>
             {% for show in shows %}
-                <li><a href="{{ path('get_show', {identifier: show.slug}) }}">{{ show.name }}</a></li>
+                <li><a href="{{ path('get_show', {identifier: show.slug}) }}" dir="auto">{{ show.name }}</a></li>
             {% endfor %}
         </ul>
         {% else %}
