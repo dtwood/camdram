@@ -76,8 +76,9 @@ class LoadPageData implements FixtureInterface, ContainerAwareInterface
         foreach ($pages as $page) {
             $cms_page = new CmsPage();
             $title = $page->getFullTitle();
-            if ($title != '') {
-                $cms_page->setSlug(Sluggable\Urlizer::urlize($title, '-'));
+            $slug = Sluggable\Urlizer::urlize($title, '-'))
+            if (($title != '') && ($slug != '')) {
+                $cms_page->setSlug($slug);
                 $cms_page->setTitle($title);
                 $cms_page->setParent($parent);
                 $text = $page->getHelp();
